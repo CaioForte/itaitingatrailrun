@@ -1,0 +1,16 @@
+ITAITINGA TRAIL RUN - SITE SIMPLES DE INSCRIÇÕES
+
+Estrutura:
+- index.html
+- css/styles.css
+- js/main.js
+- assets/logo-itaitinga-trail-run.png
+
+O frontend usa o MESMO Google Apps Script atualmente usado pelo Itaitinga MTB Race.
+Por isso, antes de colocar o Trail Run em produção, revise no backend:
+1. descrição do checkout InfinitePay (ainda pode estar como MTB Race);
+2. redirect_url após pagamento (atualmente pode apontar para o site MTB);
+3. e-mail automático de confirmação (texto/nome do evento);
+4. se as inscrições do Trail Run devem usar a mesma planilha ou uma planilha/aba própria.
+
+A interface já usa as ações publicCategorias, publicLoteVigente, publicCadastrar e publicConsultar.

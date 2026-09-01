@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Itaitinga Trail Run | Inscrições</title>
+  <meta name="description" content="Inscrições e consulta de inscrição do Itaitinga Trail Run.">
+  <meta name="theme-color" content="#080808">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=1">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#inicio" aria-label="Itaitinga Trail Run - início">
+      <img src="assets/logo-itaitinga-trail-run.png" alt="Itaitinga Trail Run">
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#sobre">SOBRE</a>
+      <a href="#consulta-inscricao">CONSULTAR INSCRIÇÃO</a>
+      <a class="nav-cta js-open-registration" href="#inscricoes">INSCREVA-SE</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero-noise"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">CORRA • SUPERE • CONQUISTE</span>
+        <h1>ITAITINGA<br><em>TRAIL RUN</em></h1>
+        <p>Um desafio para quem gosta de corrida, natureza e superação.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary js-open-registration" href="#inscricoes">FAZER INSCRIÇÃO <span>→</span></a>
+          <a class="btn btn-outline" href="#consulta-inscricao">CONSULTAR INSCRIÇÃO</a>
+        </div>
+      </div>
+      <div class="hero-logo reveal">
+        <img src="assets/logo-itaitinga-trail-run.png" alt="Logo Itaitinga Trail Run">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sobre">
+    <div class="container about-grid">
+      <div class="section-title reveal">
+        <span>SOBRE</span>
+        <h2>UMA PROVA.<br><em>UM DESAFIO.</em></h2>
+      </div>
+      <div class="about-copy reveal">
+        <p>O Itaitinga Trail Run chega para reunir corredores em uma experiência de trilha, desafio e contato com a natureza.</p>
+        <p>As informações oficiais de percurso, programação e entrega de kits serão divulgadas pela organização.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="consulta-inscricao">
+    <div class="container two-col">
+      <div class="section-title reveal">
+        <span>ÁREA DO ATLETA</span>
+        <h2>CONSULTE SUA<br><em>INSCRIÇÃO</em></h2>
+        <p>Informe o mesmo CPF utilizado no cadastro.</p>
+      </div>
+
+      <div class="card reveal">
+        <form id="form-consulta" class="consult-form">
+          <label for="consulta-cpf">CPF</label>
+          <div class="inline-form">
+            <input id="consulta-cpf" name="cpf" type="text" maxlength="14" placeholder="000.000.000-00" autocomplete="off" required>
+            <button class="btn btn-primary" type="submit">CONSULTAR</button>
+          </div>
+        </form>
+        <div id="consulta-loading" class="state" hidden>CONSULTANDO INSCRIÇÃO...</div>
+        <div id="consulta-erro" class="state state-error" hidden></div>
+        <div id="consulta-resultado" class="result" hidden>
+          <div class="result-top"><span>ITAITINGA TRAIL RUN</span><strong id="resultado-numero">#000</strong></div>
+          <div class="result-row"><small>ATLETA</small><strong id="resultado-nome">—</strong></div>
+          <div class="result-row"><small>CATEGORIA</small><strong id="resultado-categoria">—</strong></div>
+          <div id="resultado-status" class="result-status"><span id="resultado-status-text">—</span></div>
+          <a id="resultado-pagamento" class="btn btn-primary" href="#" hidden>IR PARA PAGAMENTO →</a>
+          <p id="resultado-mensagem" class="result-message"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section registration-section" id="inscricoes">
+    <div class="container two-col registration-layout">
+      <div class="section-title reveal">
+        <span>INSCRIÇÕES</span>
+        <h2>GARANTA SUA<br><em>VAGA</em></h2>
+        <p>Preencha os dados abaixo. O valor é definido pelo lote vigente e, ao finalizar, você será direcionado para o pagamento.</p>
+      </div>
+
+      <form id="form-inscricao" class="card registration-form reveal">
+        <div class="form-head"><span>ITAITINGA TRAIL RUN</span><strong>FICHA DO ATLETA</strong></div>
+        <div class="form-grid">
+          <div class="field full"><label for="nome">Nome completo *</label><input id="nome" name="nome" type="text" required placeholder="Digite seu nome completo"></div>
+          <div class="field"><label for="cpf">CPF *</label><input id="cpf" name="cpf" type="text" maxlength="14" required placeholder="000.000.000-00"></div>
+          <div class="field"><label for="dataNascimento">Data de nascimento *</label><input id="dataNascimento" name="dataNascimento" type="date" required></div>
+          <div class="field"><label for="estado">Estado *</label><select id="estado" name="estado" required><option value="">Selecione o estado</option></select></div>
+          <div class="field"><label for="cidade">Cidade *</label><select id="cidade" name="cidade" required disabled><option value="">Selecione primeiro o estado</option></select></div>
+          <div class="field"><label for="pcd">É PCD? *</label><select id="pcd" name="pcd" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+          <div class="field"><label for="equipe">Equipe</label><input id="equipe" name="equipe" type="text" placeholder="Nome da equipe (opcional)"></div>
+          <div class="field"><label for="email">E-mail *</label><input id="email" name="email" type="email" required placeholder="seuemail@email.com"></div>
+          <div class="field"><label for="telefone">WhatsApp *</label><input id="telefone" name="telefone" type="tel" required placeholder="(85) 9 9999-9999"></div>
+          <div class="field"><label for="lote">Lote</label><input id="lote" name="lote" type="text" value="CARREGANDO..." readonly></div>
+          <div class="field"><label for="categoria">Categoria *</label><select id="categoria" name="categoria" required disabled><option value="">CARREGANDO CATEGORIAS...</option></select></div>
+          <div class="field"><label for="valor">Valor</label><input id="valor" name="valor" type="text" value="R$ 0,00" readonly></div>
+          <label class="terms full"><input id="termos" name="termos" type="checkbox" required><span>Declaro que as informações são verdadeiras e concordo com as regras da prova. *</span></label>
+        </div>
+        <button class="btn btn-primary btn-submit" type="submit">ENVIAR INSCRIÇÃO <span>→</span></button>
+        <p class="form-note">* Campos obrigatórios. O valor da inscrição é definido pelo lote vigente da organização.</p>
+        <div id="formSuccess" class="form-success" hidden></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <img src="assets/logo-itaitinga-trail-run.png" alt="Itaitinga Trail Run">
+    <div><strong>ITAITINGA TRAIL RUN</strong><span>CORRA • SUPERE • CONQUISTE</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=1"></script>
+</body>
+</html>
