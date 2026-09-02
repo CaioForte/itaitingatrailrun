@@ -1,0 +1,160 @@
+// ============================================================
+// ESTADO → CIDADE
+// ============================================================
+
+const listaEstados = {
+  AC: "Acre",
+  AL: "Alagoas",
+  AP: "Amapá",
+  AM: "Amazonas",
+  BA: "Bahia",
+  CE: "Ceará",
+  DF: "Distrito Federal",
+  ES: "Espírito Santo",
+  GO: "Goiás",
+  MA: "Maranhão",
+  MT: "Mato Grosso",
+  MS: "Mato Grosso do Sul",
+  MG: "Minas Gerais",
+  PA: "Pará",
+  PB: "Paraíba",
+  PR: "Paraná",
+  PE: "Pernambuco",
+  PI: "Piauí",
+  RJ: "Rio de Janeiro",
+  RN: "Rio Grande do Norte",
+  RS: "Rio Grande do Sul",
+  RO: "Rondônia",
+  RR: "Roraima",
+  SC: "Santa Catarina",
+  SP: "São Paulo",
+  SE: "Sergipe",
+  TO: "Tocantins"
+};
+
+
+async function carregarEstadosECidades() {
+
+  const estadoSelect =
+    document.getElementById("estado");
+
+  const cidadeSelect =
+    document.getElementById("cidade");
+
+  if (!estadoSelect || !cidadeSelect) {
+    return;
+  }
+
+
+  // Limpa estados
+  estadoSelect.innerHTML =
+    '<option value="">Selecione o estado</option>';
+
+
+  // Adiciona estados
+  Object.entries(listaEstados)
+    .sort((a, b) =>
+      a[1].localeCompare(b[1], "pt-BR")
+    )
+    .forEach(([uf, nome]) => {
+
+      const option =
+        document.createElement("option");
+
+      option.value = uf;
+      option.textContent =
+        `${uf} - ${nome}`;
+
+      estadoSelect.appendChild(option);
+    });
+
+
+  cidadeSelect.disabled = true;
+
+  cidadeSelect.innerHTML =
+    '<option value="">Selecione primeiro o estado</option>';
+
+
+  estadoSelect.addEventListener(
+    "change",
+    async () => {
+
+      const uf =
+        estadoSelect.value;
+
+      cidadeSelect.innerHTML =
+        '<option value="">Carregando cidades...</option>';
+
+      cidadeSelect.disabled = true;
+
+      if (!uf) {
+
+        cidadeSelect.innerHTML =
+          '<option value="">Selecione primeiro o estado</option>';
+
+        return;
+      }
+
+
+      try {
+
+        const resposta =
+          await fetch("cidades.json");
+
+        if (!resposta.ok) {
+          throw new Error(
+            "Não foi possível carregar cidades.json"
+          );
+        }
+
+        const cidades =
+          await resposta.json();
+
+        cidadeSelect.innerHTML =
+          '<option value="">Selecione a cidade</option>';
+
+
+        (cidades[uf] || [])
+          .sort((a, b) =>
+            a.localeCompare(b, "pt-BR")
+          )
+          .forEach(nomeCidade => {
+
+            const option =
+              document.createElement("option");
+
+            option.value =
+              nomeCidade;
+
+            option.textContent =
+              nomeCidade;
+
+            cidadeSelect.appendChild(option);
+          });
+
+
+        cidadeSelect.disabled = false;
+
+      } catch (erro) {
+
+        console.error(
+          "Erro ao carregar cidades:",
+          erro
+        );
+
+        cidadeSelect.innerHTML =
+          '<option value="">Erro ao carregar cidades</option>';
+
+      }
+
+    }
+  );
+
+}
+
+
+// Inicialização
+document.addEventListener(
+  "DOMContentLoaded",
+  carregarEstadosECidades
+);
