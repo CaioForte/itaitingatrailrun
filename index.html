@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Itaitinga TRAIL Run | 2026</title>
+  <title>Itaitinga Trail Run | 2026</title>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
-  <meta name="description" content="Itaitinga TRAIL RUN - 2026. corra, supere, conquiste."/>
+  <meta name="description" content="Itaitinga Trail Run 2026. Corra, supere e conquiste em uma experiência de trail run em Itaitinga, Ceará."/>
   <meta name="theme-color" content="#050505"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -172,6 +172,7 @@
         src="https://www.google.com/maps?q=Loteamento%20Cidade%20Nova%20Itaitinga%20CE&output=embed"
         loading="lazy"
         allowfullscreen
+        aria-label="Mapa da localização do Itaitinga Trail Run"
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
 
@@ -365,6 +366,38 @@
     </div>
   </section>
 
+
+  <!-- REGULAMENTO -->
+  <section class="rules-section" id="regulamento">
+    <div class="container rules-layout">
+      <div class="rules-copy reveal">
+        <span class="section-label">REGULAMENTO DA PROVA</span>
+        <h2>REGRAS DO <em>DESAFIO</em></h2>
+        <p>
+          Consulte as regras já definidas para o Itaitinga Trail Run 2026.
+          Esta é uma versão preliminar e poderá receber atualizações antes
+          da publicação do regulamento oficial.
+        </p>
+      </div>
+
+      <div class="rules-card reveal">
+        <div class="rules-card-top">
+          <span class="rules-version">VERSÃO PRELIMINAR • v0.1</span>
+          <span class="rules-status">EM ATUALIZAÇÃO</span>
+        </div>
+        <strong>ITAITINGA TRAIL RUN 2026</strong>
+        <p>
+          Participação com idade livre. Categorias competitivas, premiação,
+          kit, hidratação, limite de vagas e demais detalhes operacionais
+          serão divulgados pela organização.
+        </p>
+        <button class="btn btn-primary" type="button" data-open-rules>
+          LER REGULAMENTO <span>→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- INSCRIÇÃO -->
   <section class="registration-section" id="inscricoes">
     <div class="container registration-layout">
@@ -391,17 +424,17 @@
         <div class="form-grid">
           <div class="form-group full">
             <label for="nome">Nome completo *</label>
-            <input id="nome" name="nome" placeholder="Digite seu nome completo" required type="text"/>
+            <input id="nome" name="nome" autocomplete="name" placeholder="Digite seu nome completo" required type="text"/>
           </div>
 
           <div class="form-group">
             <label for="cpf">CPF *</label>
-            <input id="cpf" maxlength="14" name="cpf" placeholder="000.000.000-00" required type="text"/>
+            <input id="cpf" maxlength="14" name="cpf" autocomplete="off" inputmode="numeric" placeholder="000.000.000-00" required type="text"/>
           </div>
 
           <div class="form-group">
             <label for="dataNascimento">Data de nascimento *</label>
-            <input id="dataNascimento" name="dataNascimento" required type="date"/>
+            <input id="dataNascimento" name="dataNascimento" autocomplete="bday" required type="date"/>
           </div>
 
           <div class="form-group">
@@ -434,12 +467,12 @@
 
           <div class="form-group">
             <label for="email">E-mail *</label>
-            <input id="email" name="email" placeholder="seuemail@email.com" required type="email"/>
+            <input id="email" name="email" autocomplete="email" placeholder="seuemail@email.com" required type="email"/>
           </div>
 
           <div class="form-group">
             <label for="telefone">WhatsApp *</label>
-            <input id="telefone" name="telefone" placeholder="(85) 9 9999-9999" required type="tel"/>
+            <input id="telefone" name="telefone" autocomplete="tel" inputmode="tel" placeholder="(85) 9 9999-9999" required type="tel"/>
           </div>
 
           <div class="form-group">
@@ -463,7 +496,7 @@
             <input id="termos" name="termos" required type="checkbox"/>
             <label for="termos">
               Declaro que as informações preenchidas são verdadeiras e
-              concordo com o regulamento da prova. *
+              concordo com o <button class="rules-inline-link" type="button" data-open-rules>regulamento da prova</button>. *
             </label>
           </div>
         </div>
@@ -573,6 +606,141 @@
   </div>
 
 </footer>
+
+<!-- MODAL - REGULAMENTO PRELIMINAR -->
+<div class="rules-modal" id="modalRegulamento" hidden>
+  <div class="rules-modal-overlay" data-close-rules></div>
+
+  <div class="rules-modal-card" role="dialog" aria-modal="true" aria-labelledby="rulesModalTitle">
+    <div class="rules-modal-header">
+      <div>
+        <span>VERSÃO PRELIMINAR • v0.1</span>
+        <h2 id="rulesModalTitle">REGULAMENTO — ITAITINGA TRAIL RUN 2026</h2>
+      </div>
+      <button class="rules-modal-close" type="button" aria-label="Fechar regulamento" data-close-rules>×</button>
+    </div>
+
+    <div class="rules-modal-body">
+      <div class="rules-alert">
+        <strong>DOCUMENTO PRELIMINAR</strong>
+        <p>
+          Este regulamento reúne as informações e regras já definidas para o
+          Itaitinga Trail Run 2026. Alguns detalhes organizacionais ainda estão
+          em definição e poderão ser atualizados antes da publicação da versão oficial.
+        </p>
+      </div>
+
+      <article class="rules-content">
+        <h3>1. DO EVENTO</h3>
+        <p>O Itaitinga Trail Run 2026 é um evento esportivo de corrida em trilha, destinado a incentivar a prática esportiva, a superação pessoal, a integração entre os participantes e o contato com a natureza.</p>
+        <p>A prova será realizada em Itaitinga, Ceará, no dia <strong>15 de novembro de 2026</strong>, com largada prevista para as <strong>07h00</strong>, e contará com percursos aproximados de <strong>3 km e 5 km</strong>.</p>
+        <p>Os percursos poderão apresentar terrenos irregulares, trilhas, aclives, declives, obstáculos naturais e demais características próprias de uma prova de Trail Run.</p>
+
+        <h3>2. DA PROGRAMAÇÃO</h3>
+        <p>A largada está prevista para 07h00. Horários de abertura da arena, briefing, premiação, encerramento e demais atividades serão divulgados posteriormente pela organização.</p>
+        <p>A programação poderá ser alterada quando necessário por questões operacionais ou de segurança.</p>
+
+        <h3>3. DAS INSCRIÇÕES</h3>
+        <p>As inscrições terão início previsto para <strong>07 de setembro de 2026</strong> e serão realizadas através do canal oficial disponibilizado pela organização.</p>
+        <p>As inscrições poderão ser divididas em lotes, com valores, períodos e quantidade de vagas definidos e divulgados pela organização. A inscrição será considerada efetivada após a confirmação do pagamento, exceto nos casos autorizados pela organização.</p>
+        <p>O participante é responsável pela veracidade das informações fornecidas no cadastro.</p>
+
+        <h3>4. DAS VAGAS</h3>
+        <p>O limite de participantes será definido pela organização. As inscrições poderão ser encerradas antecipadamente caso o limite estabelecido seja atingido.</p>
+
+        <h3>5. DA PARTICIPAÇÃO</h3>
+        <p>A participação terá <strong>idade livre</strong>, observadas as regras específicas aplicáveis aos menores de 18 anos. A forma de autorização e acompanhamento de menores será detalhada na versão oficial do regulamento.</p>
+        <p>O participante declara estar em condições adequadas para realizar a prova e deverá avaliar suas próprias condições físicas antes de participar.</p>
+
+        <h3>6. DAS CATEGORIAS</h3>
+        <p>A faixa etária será <strong>livre</strong>. As categorias competitivas, critérios de classificação e eventuais divisões serão divulgados posteriormente pela organização.</p>
+
+        <h3>7. DO KIT DO ATLETA</h3>
+        <p>O conteúdo do kit, bem como data, horário, local e regras para retirada, será divulgado posteriormente pelos canais oficiais do evento.</p>
+
+        <h3>8. DA IDENTIFICAÇÃO DO ATLETA</h3>
+        <p>O participante deverá utilizar corretamente a identificação oficial fornecida pela organização. A identificação não poderá ser adulterada, reproduzida ou utilizada por outro participante.</p>
+
+        <h3>9. DOS PERCURSOS</h3>
+        <p>O evento contará com percursos aproximados de 3 km e 5 km. A quilometragem poderá apresentar pequena variação em razão das características naturais do terreno e da definição final do trajeto.</p>
+        <p>O participante deverá seguir a sinalização e permanecer no percurso oficial. Cortar caminho ou abandonar propositalmente o trajeto demarcado poderá resultar em desclassificação.</p>
+
+        <h3>10. DA SEGURANÇA</h3>
+        <p>Por se tratar de prova em ambiente de trilha, poderão existir pedras, raízes, areia, lama, vegetação, buracos, desníveis, subidas, descidas e outros obstáculos naturais. Os participantes deverão respeitar as orientações da organização, fiscais e equipe de apoio.</p>
+
+        <h3>11. DA HIDRATAÇÃO</h3>
+        <p>Os pontos de hidratação e sua distribuição serão definidos conforme o planejamento final dos percursos e divulgados pela organização.</p>
+
+        <h3>12. DA CONDUTA</h3>
+        <p>Os participantes deverão respeitar os demais atletas, organização, voluntários, moradores, propriedades e o meio ambiente. É proibido abandonar lixo no percurso.</p>
+        <p>Fraude, agressão, atitude antidesportiva, alteração de identificação, corte intencional do percurso ou desrespeito grave às orientações da organização poderão resultar em desclassificação.</p>
+
+        <h3>13. DO ABANDONO DA PROVA</h3>
+        <p>O participante que decidir abandonar a prova deverá, sempre que possível, comunicar sua desistência à organização ou ao ponto de apoio mais próximo.</p>
+
+        <h3>14. DA CLASSIFICAÇÃO E DOS RESULTADOS</h3>
+        <p>O sistema de cronometragem, os critérios finais de classificação e o procedimento para eventuais contestações serão divulgados na versão oficial.</p>
+
+        <h3>15. DA PREMIAÇÃO</h3>
+        <p>As regras de premiação, colocações contempladas, troféus, medalhas e demais reconhecimentos ainda estão em definição e serão divulgadas antes da realização do evento.</p>
+
+        <h3>16. DO CANCELAMENTO E DA TRANSFERÊNCIA</h3>
+        <p>As regras para cancelamento, transferência de titularidade e eventual reembolso serão definidas e publicadas pela organização, observada a legislação aplicável.</p>
+
+        <h3>17. DE ALTERAÇÕES DO EVENTO</h3>
+        <p>A organização poderá alterar percurso, horários, programação ou outras características quando necessário para preservar a segurança dos participantes ou diante de circunstâncias alheias ao seu controle.</p>
+
+        <h3>18. DO USO DE IMAGEM</h3>
+        <p>Durante o evento poderão ser realizados registros fotográficos e audiovisuais. A utilização desses registros pela organização observará a legislação aplicável.</p>
+
+        <h3>19. DA RESPONSABILIDADE DO PARTICIPANTE</h3>
+        <p>Ao realizar sua inscrição, o participante declara ter conhecimento das características de uma prova de Trail Run e compromete-se a respeitar o regulamento vigente e as orientações da organização.</p>
+        <p>As disposições deste regulamento não excluem as responsabilidades legais atribuídas à organização do evento.</p>
+
+        <h3>20. DAS DISPOSIÇÕES FINAIS</h3>
+        <p>Esta é uma <strong>versão preliminar</strong>. Informações ainda não definidas serão incorporadas por meio de atualização deste documento.</p>
+        <p>Os casos não previstos serão analisados pela organização, respeitando a legislação aplicável e os princípios de segurança, razoabilidade e igualdade entre os participantes.</p>
+      </article>
+    </div>
+
+    <div class="rules-modal-footer">
+      <span>Última versão: setembro de 2026</span>
+      <button class="btn btn-primary" type="button" data-close-rules>ENTENDI</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const modal = document.getElementById("modalRegulamento");
+  if (!modal) return;
+
+  const openRules = () => {
+    modal.hidden = false;
+    document.body.classList.add("rules-modal-open");
+    const closeButton = modal.querySelector(".rules-modal-close");
+    if (closeButton) closeButton.focus();
+  };
+
+  const closeRules = () => {
+    modal.hidden = true;
+    document.body.classList.remove("rules-modal-open");
+  };
+
+  document.querySelectorAll("[data-open-rules]").forEach((button) => {
+    button.addEventListener("click", openRules);
+  });
+
+  modal.querySelectorAll("[data-close-rules]").forEach((button) => {
+    button.addEventListener("click", closeRules);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) closeRules();
+  });
+})();
+</script>
+
 <!-- MODAL - INSCRIÇÃO REALIZADA -->
 <div id="modalInscricaoSucesso" class="success-modal" hidden>
 
