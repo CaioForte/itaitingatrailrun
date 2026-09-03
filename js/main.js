@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   carregarConfiguracaoSitePublico_();
 
-  const EVENT_DATE = "2026-11-01T08:00:00-03:00";
+  const EVENT_DATE = "2026-11-15T07:00:00-03:00";
 
   // ----------------------------------------------------------
   // UTILITÁRIOS
