@@ -2469,3 +2469,128 @@ body.rules-modal-open {
   }
 }
 
+/* =========================================================
+   CONTAGEM REGRESSIVA — HERO
+========================================================= */
+
+.race-countdown {
+  width: min(620px, 100%);
+  margin: 28px 0 30px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(8px);
+}
+
+.race-countdown-heading {
+  flex: 0 0 auto;
+  padding-right: 22px;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.race-countdown-heading span,
+.race-countdown-heading strong {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.race-countdown-heading span {
+  margin-bottom: 2px;
+  color: var(--primary, #d8ff00);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.race-countdown-heading strong {
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.race-countdown-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(58px, 1fr));
+  gap: 10px;
+}
+
+.race-countdown-item {
+  text-align: center;
+}
+
+.race-countdown-item strong {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.55rem);
+  font-weight: 900;
+  line-height: 0.9;
+  color: #fff;
+}
+
+.race-countdown-item span {
+  display: block;
+  margin-top: 7px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.race-countdown-live {
+  width: 100%;
+  padding: 8px 0;
+  color: var(--primary, #d8ff00);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(1.7rem, 5vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.race-countdown.race-started {
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .race-countdown {
+    margin-top: 24px;
+    margin-bottom: 26px;
+    padding: 16px 14px;
+    display: block;
+  }
+
+  .race-countdown-heading {
+    margin-bottom: 15px;
+    padding-right: 0;
+    padding-bottom: 12px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .race-countdown-heading span,
+  .race-countdown-heading strong {
+    display: inline;
+  }
+
+  .race-countdown-heading span {
+    margin-right: 7px;
+  }
+
+  .race-countdown-grid {
+    gap: 6px;
+  }
+
+  .race-countdown-item strong {
+    font-size: 1.9rem;
+  }
+
+  .race-countdown-item span {
+    font-size: 0.58rem;
+  }
+}
+

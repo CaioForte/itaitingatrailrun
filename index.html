@@ -53,6 +53,37 @@
           trilha e superação.
         </p>
 
+
+        <div class="race-countdown" id="raceCountdown" aria-label="Contagem regressiva para a prova">
+          <div class="race-countdown-heading">
+            <span>FALTAM</span>
+            <strong>PARA A LARGADA</strong>
+          </div>
+
+          <div class="race-countdown-grid">
+            <div class="race-countdown-item">
+              <strong id="countdownDays">00</strong>
+              <span>DIAS</span>
+            </div>
+            <div class="race-countdown-item">
+              <strong id="countdownHours">00</strong>
+              <span>HORAS</span>
+            </div>
+            <div class="race-countdown-item">
+              <strong id="countdownMinutes">00</strong>
+              <span>MIN</span>
+            </div>
+            <div class="race-countdown-item">
+              <strong id="countdownSeconds">00</strong>
+              <span>SEG</span>
+            </div>
+          </div>
+
+          <div class="race-countdown-live" id="raceCountdownLive" hidden>
+            A PROVA COMEÇOU!
+          </div>
+        </div>
+
         <div class="hero-actions">
           <a class="btn btn-primary js-open-registration" href="#inscricoes">FAZER INSCRIÇÃO <span>→</span></a>
           <a class="btn btn-outline js-open-consultation" href="#consulta-inscricao">CONSULTAR INSCRIÇÃO <span>→</span></a>
@@ -776,5 +807,60 @@
 
 </div>
 <script src="js/main.js"></script>
+
+<script>
+(() => {
+  const raceDate = new Date("2026-11-15T07:00:00-03:00");
+
+  const countdown = document.getElementById("raceCountdown");
+  const liveMessage = document.getElementById("raceCountdownLive");
+  const daysEl = document.getElementById("countdownDays");
+  const hoursEl = document.getElementById("countdownHours");
+  const minutesEl = document.getElementById("countdownMinutes");
+  const secondsEl = document.getElementById("countdownSeconds");
+
+  if (!countdown || !liveMessage || !daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+  const pad = (value) => String(value).padStart(2, "0");
+
+  const updateCountdown = () => {
+    const now = new Date();
+    const distance = raceDate.getTime() - now.getTime();
+
+    if (distance <= 0) {
+      countdown.classList.add("race-started");
+      liveMessage.hidden = false;
+
+      const grid = countdown.querySelector(".race-countdown-grid");
+      const heading = countdown.querySelector(".race-countdown-heading");
+
+      if (grid) grid.hidden = true;
+      if (heading) heading.hidden = true;
+
+      return false;
+    }
+
+    const totalSeconds = Math.floor(distance / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    daysEl.textContent = pad(days);
+    hoursEl.textContent = pad(hours);
+    minutesEl.textContent = pad(minutes);
+    secondsEl.textContent = pad(seconds);
+
+    return true;
+  };
+
+  if (updateCountdown()) {
+    const timer = setInterval(() => {
+      if (!updateCountdown()) clearInterval(timer);
+    }, 1000);
+  }
+})();
+</script>
+
 </body>
 </html>
