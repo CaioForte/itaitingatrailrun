@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <title>Foto do Atleta | Itaitinga Trail Run 2026</title>
+  <meta name="description" content="Crie sua foto oficial do Itaitinga Trail Run 2026 e compartilhe nos stories.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/foto-atleta.css">
+</head>
+<body>
+  <main class="athlete-photo-page">
+    <section class="intro">
+      <div class="container intro-inner">
+        <div>
+          <span class="eyebrow">ITAITINGA TRAIL RUN 2026</span>
+          <h1>CRIE SUA <em>FOTO DO ATLETA</em></h1>
+          <p>Escolha uma foto, ajuste dentro da moldura oficial e salve pronta para postar nos Stories.</p>
+        </div>
+        <span class="privacy-badge">🔒 Sua foto fica somente no navegador</span>
+      </div>
+    </section>
+
+    <section class="editor-section">
+      <div class="container editor-grid">
+
+        <aside class="editor-panel">
+          <div class="step">
+            <span class="step-number">01</span>
+            <div>
+              <small>ESCOLHA SUA FOTO</small>
+              <strong>Envie uma imagem</strong>
+            </div>
+          </div>
+
+          <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+
+          <button class="upload-box" id="choosePhotoButton" type="button">
+            <span class="upload-icon">↑</span>
+            <strong>SELECIONAR FOTO</strong>
+            <small>JPG, PNG ou WEBP</small>
+          </button>
+
+          <div class="controls" id="controls" hidden>
+            <div class="step compact">
+              <span class="step-number">02</span>
+              <div>
+                <small>AJUSTE</small>
+                <strong>Posicione como preferir</strong>
+              </div>
+            </div>
+
+            <label class="range-field">
+              <span>ZOOM</span>
+              <input id="zoomRange" type="range" min="1" max="3" value="1" step="0.01">
+            </label>
+
+            <p class="drag-tip">Arraste a foto diretamente na prévia para reposicionar.</p>
+
+            <button class="btn btn-secondary" id="resetButton" type="button">REDEFINIR POSIÇÃO</button>
+          </div>
+
+          <div class="action-box">
+            <div class="step compact">
+              <span class="step-number">03</span>
+              <div>
+                <small>PRONTO</small>
+                <strong>Baixe e compartilhe</strong>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" id="downloadButton" type="button" disabled>
+              BAIXAR FOTO
+              <span>↓</span>
+            </button>
+
+            <button class="btn btn-outline" id="shareButton" type="button" disabled>
+              COMPARTILHAR
+              <span>↗</span>
+            </button>
+          </div>
+
+          <div class="notice">
+            <strong>DICA</strong>
+            <p>Fotos verticais e com boa iluminação costumam encaixar melhor na moldura.</p>
+          </div>
+        </aside>
+
+        <div class="preview-column">
+          <div class="preview-head">
+            <div>
+              <small>PRÉVIA</small>
+              <strong>STORY • 1080 × 1920</strong>
+            </div>
+            <span id="previewStatus">AGUARDANDO FOTO</span>
+          </div>
+
+          <div class="canvas-shell">
+            <canvas id="editorCanvas" width="1080" height="1920" aria-label="Prévia da foto do atleta"></canvas>
+            <div class="empty-state" id="emptyState">
+              <span>+</span>
+              <strong>SUA FOTO AQUI</strong>
+              <small>Selecione uma imagem para começar</small>
+            </div>
+          </div>
+
+          <p class="preview-help">No celular, use um dedo para arrastar a foto e o controle de zoom para aproximar.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="js/foto-atleta.js"></script>
+</body>
+</html>
