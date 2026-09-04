@@ -23,6 +23,37 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  const canvasShell = canvas.closest(".canvas-shell");
+  const previewHelp = document.querySelector(".preview-help");
+  const adjustButton = document.createElement("button");
+  adjustButton.type = "button";
+  adjustButton.className = "mobile-adjust-button";
+  adjustButton.textContent = "AJUSTAR FOTO";
+  adjustButton.hidden = true;
+
+  if (canvasShell) {
+    canvasShell.insertAdjacentElement("afterend", adjustButton);
+  }
+
+  function setMobileAdjustMode(enabled) {
+    mobileAdjustMode = enabled;
+    document.body.classList.toggle("photo-adjust-mode", enabled);
+    canvas.classList.toggle("adjust-enabled", enabled);
+    adjustButton.classList.toggle("active", enabled);
+    adjustButton.textContent = enabled ? "CONCLUIR AJUSTE" : "AJUSTAR FOTO";
+
+    if (previewHelp && isMobilePointer()) {
+      previewHelp.textContent = enabled
+        ? "Arraste a foto para posicionar. Quando terminar, toque em CONCLUIR AJUSTE."
+        : "Role a página normalmente. Para mover a foto, toque em AJUSTAR FOTO.";
+    }
+  }
+
+  adjustButton.addEventListener("click", () => {
+    if (!photo) return;
+    setMobileAdjustMode(!mobileAdjustMode);
+  });
+
   const ctx = canvas.getContext("2d");
   if (!ctx) {
     alert("Seu navegador não conseguiu iniciar o editor de imagem.");
@@ -39,6 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let dragging = false;
   let lastPointerX = 0;
   let lastPointerY = 0;
+  let mobileAdjustMode = false;
+  const isMobilePointer = () => window.matchMedia('(max-width: 700px)').matches;
 
   const mask = {
     cx: OUTPUT_WIDTH * 0.495,
@@ -120,6 +153,8 @@ document.addEventListener("DOMContentLoaded", () => {
       shareButton.disabled = false;
       emptyState.hidden = true;
       previewStatus.textContent = "PRONTA PARA AJUSTAR";
+      adjustButton.hidden = !isMobilePointer();
+      setMobileAdjustMode(false);
 
       choosePhotoButton.querySelector("strong").textContent = "TROCAR FOTO";
     };
@@ -143,6 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function beginDrag(event) {
     if (!photo) return;
+    if (isMobilePointer() && !mobileAdjustMode) return;
 
     dragging = true;
     canvas.classList.add("dragging");
@@ -159,6 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function dragPhoto(event) {
     if (!dragging || !photo) return;
+    if (isMobilePointer() && !mobileAdjustMode) return;
 
     const p = canvasPoint(event);
     offsetX += p.x - lastPointerX;
@@ -277,6 +314,15 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.addEventListener("pointercancel", stopDrag);
   canvas.addEventListener("pointerleave", (event) => {
     if (dragging && event.buttons === 0) stopDrag(event);
+  });
+
+  window.addEventListener("resize", () => {
+    if (!isMobilePointer()) {
+      setMobileAdjustMode(false);
+      adjustButton.hidden = true;
+    } else if (photo) {
+      adjustButton.hidden = false;
+    }
   });
 
   frame.onload = render;
